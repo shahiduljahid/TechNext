@@ -24,65 +24,105 @@ const ServiceForm = ({
 
   const handleFocus = (e) => {
     e.target.value = "";
-   
-
   };
 
   const onSubmit = (data) => {
-    console.log(data)
-    
-
     const url = `http://localhost:4000/addEmployee`;
     fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     }).then((result) => {
-      console.log(result)
       if (result) {
         closeModal();
-        alert("An Employee added successfully");
+        alert("Employee added successfully");
       }
     });
   };
 
   let csvFile;
 
+  const [csvSuccess, setCsvSuccess] = useState({
+    success: "",
+    failed: "",
+  });
+
+  const handleFile = (event) => {
+    setUpload(true);
+    csvFile = event.target.files[0];
+
+    handleFileValidationAndUploading();
+  };
+
   const handleDragOver = (e) => {
-    console.log("file dragged");
     e.preventDefault();
     setOn(true);
   };
   const handleDragLeave = (e) => {
-    console.log("file leave");
     setOn(false);
     e.preventDefault();
   };
   const handleDrop = (e) => {
-    console.log("file drop");
     e.preventDefault();
-    setUpload(true);
 
     csvFile = e.dataTransfer.files[0];
-    let fileType = file.type;
-    const fileReader = new FileReader();
+    handleFileValidationAndUploading();
+  };
 
-    fileReader.readAsText(csvFile);
+  const handleFileValidationAndUploading = () => {
+    let filename = csvFile.name;
+    const array = filename.split(".");
 
-    fileReader.onload = function () {
-      const dataset = fileReader.result;
+    let fileType = array.pop();
 
-      CSVToJSON()
-        .fromString(dataset)
-        .then((res) => console.log(res));
-      // console.log(jsonArray)
-    };
+    if (fileType === "csv") {
+      setUpload(true);
 
-    let ValidExtension = ["image/jpeg", "image/jpg", "image/png"];
-    if (ValidExtension.includes(fileType)) {
-      console.log("this is an image file");
+      const fileReader = new FileReader();
+
+      fileReader.readAsText(csvFile);
+
+      fileReader.onload = function () {
+        const dataset = fileReader.result;
+
+        CSVToJSON()
+          .fromString(dataset)
+          .then((res) => {
+            const vaildEmployee = res.filter(
+              (element) =>
+                element.firstName && element.lastName && element.email
+            );
+
+            vaildEmployee.map((element) => {
+              const url = `http://localhost:4000/addEmployee`;
+              fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(element),
+              }).then((result) => {});
+
+              return console.log("added Employee by csv");
+            });
+
+            const failRate = res.length - vaildEmployee.length;
+
+            const successRate = res.length - failRate;
+
+            const newCsvSuccessRate = { ...csvSuccess };
+            newCsvSuccessRate.success = successRate;
+            newCsvSuccessRate.failed = failRate;
+
+            setCsvSuccess(newCsvSuccessRate);
+
+            alert(
+              `Total ${newCsvSuccessRate.success} employee added . ${newCsvSuccessRate.failed} people failed to add `
+            );
+            setUpload(false);
+            closeModal();
+          });
+      };
     } else {
-      console.log("this is not an image file");
+      alert("this is not an CSV file");
     }
   };
 
@@ -119,7 +159,9 @@ const ServiceForm = ({
                 required
                 {...register("firstName", { required: true })}
               />
-              {errors.firstName && <span className="mb-3 text-danger">This field is required</span>}
+              {errors.firstName && (
+                <span className="mb-3 text-danger">This field is required</span>
+              )}
 
               <input
                 onFocus={handleFocus}
@@ -128,7 +170,9 @@ const ServiceForm = ({
                 required
                 {...register("lastName", { required: true })}
               />
-              {errors.lastName && <span className="mb-3 text-danger">This field is required</span>}
+              {errors.lastName && (
+                <span className="mb-3 text-danger">This field is required</span>
+              )}
 
               <input
                 onFocus={handleFocus}
@@ -139,7 +183,9 @@ const ServiceForm = ({
                 placeholder="email"
                 id=""
               />
-              {errors.email && <span className="mb-3 text-danger">This field is required</span>}
+              {errors.email && (
+                <span className="mb-3 text-danger">This field is required</span>
+              )}
 
               <input
                 className="d-flex justify-content-center ms-auto mb-3 btn text-light text-bold font-weight-bold btn-color form-group"
@@ -151,15 +197,30 @@ const ServiceForm = ({
               onDragOver={(e) => handleDragOver(e)}
               onDragLeave={(e) => handleDragLeave(e)}
               onDrop={(e) => handleDrop(e)}
-              className="d-flex justify-content-center dropBox p-5 "
+              className="dropBox text-center p-5 "
             >
               {!upload ? (
                 <h1 className="Drop-content">
-                  {on ? "Release here" : "Drop here"}
+                  {on
+                    ? "Release To Upload  File"
+                    : "Drag & Drop To Upload File"}
                 </h1>
               ) : (
                 <h1 className="Drop-content text-success">File uploaded</h1>
               )}
+              <label
+                className="btn btn-color browseFileBtn text-bold text-light"
+                htmlFor="csvFile"
+              >
+                Browse file
+              </label>
+              <input
+                type="file"
+                onChange={handleFile}
+                name="file"
+                id="csvFile"
+                hidden
+              />
             </div>
           )}
         </div>

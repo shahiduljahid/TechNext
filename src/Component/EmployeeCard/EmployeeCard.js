@@ -4,7 +4,7 @@ import "./EmployeeCard.css"
 const EmployeeCard = ({totalEmployees}) => {
     return (
         <div className="row">
-        <div className="px-5">
+        <div className="px-5 py-5">
           <table className="table table-borderless h7 rounded">
             <thead className=" p-1 ">
               <tr>

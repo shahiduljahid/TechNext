@@ -3,3 +3,17 @@
     border:1px dashed black;
 
 }
+.browseFileBtn{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    
+}
+@media (min-width:450px) {
+    .browseFileBtn{
+        width:40%
+        
+    }
+
+    
+}
