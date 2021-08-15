@@ -34,9 +34,10 @@ const Home = () => {
           <div className="col-md-5 mb-5 mt-5 pt-5 col-10">
             <h1 className="tomato mb-5">Join At TechNext</h1>
             <p className="mb-3">
-              If you’re interested in TechNext and interested to work here. we’d like to
-              meet you! We offer a vibrant workplace with lot's of facilities, as well as a generous vacation plan and a flexible work
-              schedule.
+              If you’re interested in TechNext and interested to work here. we’d
+              like to meet you! We offer a vibrant workplace with lot's of
+              facilities, as well as a generous vacation plan and a flexible
+              work schedule.
             </p>
             <Link to={"/admin"}>
               <button className="btn btn-color text-bold text-light">

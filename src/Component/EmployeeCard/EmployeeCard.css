@@ -1,0 +1,15 @@
+.mailBtn{
+    cursor: pointer;
+}
+@media (max-width:767px) {
+    .serial-number ,.email{
+        display: none;
+    }
+    
+}
+@media (max-width:350px) {
+    .firstName{
+        display: none;
+    }
+    
+}

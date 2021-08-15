@@ -1,33 +1,28 @@
 import "./App.css";
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Home from "./Component/Home/Home/Home";
-
-
+import Admin from "./Component/Admin/Admin";
+import Employees from "./Component/Employess/Employees";
 
 function App() {
- 
   return (
     <div>
       <Router>
         <Switch>
           <Route path="/home">
             <Home></Home>
+          </Route>
+          <Route path="/admin">
+            <Admin></Admin>
+          </Route>
+          <Route path="/employees">
+            <Employees></Employees>
+          </Route>
+          <Route path="/contact"></Route>
           
-          </Route>
-          <Route path="/skills">
-           
-          </Route>
-          <Route path="/projects">
-         
-          </Route>
-          <Route path="/contact">
-            
-          </Route>
-          <Route path="/blogs"></Route>
           <Route path="/">
-          <Home></Home>
-           
+            <Home></Home>
           </Route>
         </Switch>
       </Router>
