@@ -1,0 +1,42 @@
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  box-shadow: none;
+}
+.navbar-toggler-icon {
+  background-image: url(../../Photos/menu.png) !important;
+}
+.navbar {
+  background-color: transparent;
+}
+
+.nav-link {
+  font-size: 20px;
+  padding: 10px 15px !important;
+  border-radius: 10px;
+
+  transition-duration: 0.3s;
+}
+.nav-link:hover {
+  color: black !important;
+  font-weight: 700;
+
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 8px 12px !important;
+  background-color: wheat;
+  
+}
+
+@media (max-width:991px) {
+  .nav-link{
+    margin: 0!important;
+  }
+  .navbar {
+    background-color: #000000bf;
+  }
+  
+  
+}
+

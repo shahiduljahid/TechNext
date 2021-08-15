@@ -1,0 +1,14 @@
+.footer-container{
+    text-align: left;
+    background-color: black;
+}
+@media (max-width:767px) {
+    .footer-container{
+        text-align: center;
+    }
+    .copyRight-Content{
+        margin-bottom: 30px!important;
+    }
+    
+    
+}
