@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="mt-5 pt-5">
         <div  className="row  justify-content-between py-4 footer-container">
 
-        <div className="col-md-5 m-auto  copyRight-Content text-light">Copyright © 2012-2020 TECHNEXT™ LIMITED</div>
+        <div className="col-md-5 m-auto  copyRight-Content text-light">Copyright © 2012-{new Date().getFullYear()}  TECHNEXT™ LIMITED</div>
 
         <div className="col-md-5  text-light">
 
