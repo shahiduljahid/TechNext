@@ -4,9 +4,9 @@ import { Modal } from "react-responsive-modal";
 import { useForm } from "react-hook-form";
 import lock from "../../Photos/closed.svg";
 import CSVToJSON from "csvtojson";
-import "./ServiceForm.css";
+import "./RecruiteForm.css";
 
-const ServiceForm = ({
+const RecruiteForm = ({
   modalIsOpen,
   closeModal,
   name,
@@ -229,4 +229,4 @@ const ServiceForm = ({
   );
 };
 
-export default ServiceForm;
+export default RecruiteForm;

@@ -1,9 +1,9 @@
 import React from "react";
 
 
-import ServiceForm from "../ServiceForm/ServiceForm";
+import RecruiteForm from "../RecruiteForm/RecruiteForm";
 
-const ServiceCard = ({ addEmployee }) => {
+const RecruiteCard = ({ addEmployee }) => {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   function openModal() {
     setIsOpen(true);
@@ -13,7 +13,7 @@ const ServiceCard = ({ addEmployee }) => {
     setIsOpen(false);
   }
   return (
-    <div className="col-xl-3 col-10 mx-2 mb-5 rounded shadow p-3 text-center ">
+    <div className="col-md-4 col-10 mx-2 mb-5 rounded shadow p-3 text-center ">
       <img
         style={{ height: "60px" }}
         className="img-fluid mb-3"
@@ -34,16 +34,16 @@ const ServiceCard = ({ addEmployee }) => {
         Add Employee
       </button>
 
-      <ServiceForm
+      <RecruiteForm
         modalIsOpen={modalIsOpen}
         name={addEmployee.title}
         description={addEmployee.description}
         file={addEmployee.file}
         img={addEmployee.img}
         closeModal={closeModal}
-      ></ServiceForm>
+      ></RecruiteForm>
     </div>
   );
 };
 
-export default ServiceCard;
+export default RecruiteCard;

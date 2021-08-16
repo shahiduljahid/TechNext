@@ -3,7 +3,7 @@ import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import person from "../../Photos/add-user (1).png"
 import people from "../../Photos/add-group.png"
-import ServiceCard from "../ServiceCard/ServiceCard";
+import RecruiteCard from "../RecruiteCard/RecruiteCard";
 
 const Admin = () => {
   const recruitment = [
@@ -36,7 +36,7 @@ const Admin = () => {
 
         <div className="row justify-content-center">
         {recruitment.map((addEmployee) => (
-              <ServiceCard key={addEmployee._id} addEmployee={addEmployee}></ServiceCard>
+              <RecruiteCard key={addEmployee._id} addEmployee={addEmployee}></RecruiteCard>
             ))}
         </div>
       </div>
