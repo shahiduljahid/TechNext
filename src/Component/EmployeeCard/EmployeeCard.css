@@ -1,8 +1,12 @@
+.btn:focus, .btn:active:focus, .btn.active:focus{
+    outline: none !important;;
+    box-shadow:none!important;
+}
 .mailBtn{
     cursor: pointer;
 }
 @media (max-width:767px) {
-    .serial-number ,.email{
+    .email{
         display: none;
     }
     
