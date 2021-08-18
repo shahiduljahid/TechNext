@@ -1,6 +1,5 @@
 import React from "react";
 
-
 import RecruiteForm from "../RecruiteForm/RecruiteForm";
 
 const RecruiteCard = ({ addEmployee }) => {

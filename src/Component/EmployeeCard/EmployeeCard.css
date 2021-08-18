@@ -1,20 +1,20 @@
-.btn:focus, .btn:active:focus, .btn.active:focus{
-    outline: none !important;;
-    box-shadow:none!important;
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
-.mailBtn{
-    cursor: pointer;
+.mailBtn {
+  cursor: pointer;
 }
-@media (max-width:767px) {
-    .email{
-        display: none;
-    }
-    
+@media (max-width: 767px) {
+  .email {
+    display: none;
+  }
 }
-@media (max-width:350px) {
-    .lastName,.pageCounter{
-        display: none!important;
-    }
-   
-    
+@media (max-width: 350px) {
+  .lastName,
+  .pageCounter {
+    display: none !important;
+  }
 }

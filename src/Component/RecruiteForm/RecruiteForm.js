@@ -119,8 +119,7 @@ const RecruiteForm = ({
             setCsvSuccess(newCsvSuccessRate);
 
             alert(
-              `Total ${newCsvSuccessRate.success} employee added . ${newCsvSuccessRate.failed} people failed to add 
-              every employee must have firstName,lastName and email
+              `Total ${newCsvSuccessRate.success} employee added .${newCsvSuccessRate.failed} people failed to add . every employee must need firstName,lastName and email
               
               `
             );
@@ -235,7 +234,7 @@ const RecruiteForm = ({
 
           {userInfo && (
             <Mail
-            setSelect={setSelect}
+              setSelect={setSelect}
               multipleUser={multipleUser}
               closeModal={closeModal}
               userInfo={userInfo}

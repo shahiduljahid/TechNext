@@ -1,8 +1,8 @@
 import React from "react";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
-import person from "../../Photos/add-user (1).png"
-import people from "../../Photos/add-group.png"
+import person from "../../Photos/add-user (1).png";
+import people from "../../Photos/add-group.png";
 import RecruiteCard from "../RecruiteCard/RecruiteCard";
 
 const Admin = () => {
@@ -10,20 +10,17 @@ const Admin = () => {
     {
       _id: "60928d61f77998484ce0da2a",
       title: "Add Single Employee",
-      description:
-        "Add an employee with their firstName, lastName and Email",
+      description: "Add an employee with their firstName, lastName and Email",
       img: person,
-      file:false
+      file: false,
     },
     {
       _id: "60928ee6f77998484ce0da2b",
       title: "Add With CSV",
-      description:
-        "Add Multiple employee with a CSV file.",
+      description: "Add Multiple employee with a CSV file.",
       img: people,
-      file:true
-    }
-    
+      file: true,
+    },
   ];
   return (
     <div>
@@ -35,9 +32,12 @@ const Admin = () => {
         </h1>
 
         <div className="row justify-content-center">
-        {recruitment.map((addEmployee) => (
-              <RecruiteCard key={addEmployee._id} addEmployee={addEmployee}></RecruiteCard>
-            ))}
+          {recruitment.map((addEmployee) => (
+            <RecruiteCard
+              key={addEmployee._id}
+              addEmployee={addEmployee}
+            ></RecruiteCard>
+          ))}
         </div>
       </div>
       <Footer></Footer>

@@ -14,5 +14,5 @@ const findVowelsCount = (str) => {
   return vowelCount;
 };
 
-console.log(findVowelsCount("Hello World"));
+(findVowelsCount("Hello World"));
 // output: 3

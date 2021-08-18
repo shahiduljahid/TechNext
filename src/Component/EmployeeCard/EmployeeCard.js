@@ -87,7 +87,6 @@ const EmployeeCard = ({ totalEmployees }) => {
   });
 
   //handle send multipleUser Functions
-  const [showCheckBox, setShowCheckBox] = useState(false);
 
   const [select, setSelect] = useState(false);
   const handleSelect = () => {
@@ -99,8 +98,6 @@ const EmployeeCard = ({ totalEmployees }) => {
   };
 
   const handleMultipleUsers = () => {
-    console.log("clicked");
-
     openModal();
   };
 

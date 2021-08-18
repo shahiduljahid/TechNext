@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import emailjs from "emailjs-com";
 
-const Mail = ({ userInfo, closeModal, multipleUser,setSelect }) => {
+const Mail = ({ userInfo, closeModal, multipleUser, setSelect }) => {
   const {
     register,
     handleSubmit,
@@ -20,13 +20,11 @@ const Mail = ({ userInfo, closeModal, multipleUser,setSelect }) => {
       }).then((result) => {});
     });
 
-    alert(`congratulation your messaged sent to ${multipleUser.length}  people successfully`)
+    alert(
+      `congratulation your messaged sent to ${multipleUser.length}  people successfully`
+    );
     closeModal();
-    setSelect(false)
-  };
-
-  const handleFocus = (e) => {
-    e.target.value = "";
+    setSelect(false);
   };
 
   const send = (e) => {
@@ -42,12 +40,10 @@ const Mail = ({ userInfo, closeModal, multipleUser,setSelect }) => {
       )
       .then(
         (result) => {
-          console.log(result.text);
           alert(`congratulation your messaged sent successfully`);
           closeModal();
         },
         (error) => {
-          console.log(error.text);
           alert(error.text);
           closeModal();
         }
@@ -55,7 +51,7 @@ const Mail = ({ userInfo, closeModal, multipleUser,setSelect }) => {
     e.target.reset();
   };
 
-  return !multipleUser ? (
+  return !multipleUser.length ? (
     <form className=" mt-5 border-0 form-control" onSubmit={send}>
       <label
         className=" mb-2 justify-content-center d-flex text-bold"

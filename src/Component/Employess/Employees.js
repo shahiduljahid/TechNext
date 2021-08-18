@@ -16,14 +16,12 @@ const Employees = () => {
   }, []);
   return (
     <div>
-        <Navbar></Navbar>
+      <Navbar></Navbar>
       <div className="row justify-content-center">
         <div className="col-md-9 ">
           <h4 className=" ms-2 tomato text-center mt-5 pt-5">Total Employee</h4>
           <div className=" shadow mt-5 ">
-            <div className=" mx-3 mt-3">
-              
-            </div>
+            <div className=" mx-3 mt-3"></div>
             <EmployeeCard totalEmployees={totalEmployees}></EmployeeCard>
           </div>
         </div>
