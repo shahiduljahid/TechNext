@@ -99,7 +99,15 @@ const EmployeeCard = ({ totalEmployees }) => {
   };
 
   const handleMultipleUsers = () => {
-    openModal();
+
+    if(selectedEmails.length>0){
+      openModal()
+
+    }
+    else{
+      alert("please select employee")
+    }
+    ;
   };
 
   return (
@@ -114,7 +122,7 @@ const EmployeeCard = ({ totalEmployees }) => {
           </button>
         )}
 
-        {select && (
+        {select &&(
           <button
             onClick={handleCancel}
             className="btn text-light mx-2 btn-secondary text-bold"
