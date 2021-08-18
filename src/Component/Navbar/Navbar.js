@@ -6,7 +6,7 @@ import logo from "../../Photos/techenxt-logo.png";
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light p-2">
-      <div className="container-fluid mx-2">
+      <div className="container-fluid">
         <div className="align-items-center d-flex">
           <Link to={"/home"}>
             <img
