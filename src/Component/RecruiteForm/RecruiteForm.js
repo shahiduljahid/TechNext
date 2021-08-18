@@ -129,6 +129,8 @@ const RecruiteForm = ({
       };
     } else {
       alert("this is not an CSV file");
+      setUpload(false);
+      closeModal();
     }
   };
 
