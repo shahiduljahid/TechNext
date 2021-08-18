@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import lock from "../../Photos/closed.svg";
 import CSVToJSON from "csvtojson";
 import "./RecruiteForm.css";
+import Mail from "../Mail/Mail";
 
 const RecruiteForm = ({
   modalIsOpen,
@@ -13,6 +14,9 @@ const RecruiteForm = ({
   description,
   img,
   file,
+  userInfo,
+  multipleUser,
+  setSelect,
 }) => {
   const closeIcon = <img style={{ height: "40px" }} src={lock} alt="" />;
   const {
@@ -115,7 +119,10 @@ const RecruiteForm = ({
             setCsvSuccess(newCsvSuccessRate);
 
             alert(
-              `Total ${newCsvSuccessRate.success} employee added . ${newCsvSuccessRate.failed} people failed to add `
+              `Total ${newCsvSuccessRate.success} employee added . ${newCsvSuccessRate.failed} people failed to add 
+              every employee must have firstName,lastName and email
+              
+              `
             );
             setUpload(false);
             closeModal();
@@ -144,7 +151,7 @@ const RecruiteForm = ({
         <div className="shadow p-3">
           <h4 className="text-color text-center">{name}</h4>
 
-          {!file ? (
+          {!file && !userInfo ? (
             <form
               className=" mt-5 border-0 form-control"
               onSubmit={handleSubmit(onSubmit)}
@@ -193,35 +200,46 @@ const RecruiteForm = ({
               />
             </form>
           ) : (
-            <div
-              onDragOver={(e) => handleDragOver(e)}
-              onDragLeave={(e) => handleDragLeave(e)}
-              onDrop={(e) => handleDrop(e)}
-              className="dropBox text-center p-5 "
-            >
-              {!upload ? (
-                <h1 className="Drop-content">
-                  {on
-                    ? "Release To Upload  File"
-                    : "Drag & Drop To Upload File"}
-                </h1>
-              ) : (
-                <h1 className="Drop-content text-success">File uploaded</h1>
-              )}
-              <label
-                className="btn btn-color browseFileBtn text-bold text-light"
-                htmlFor="csvFile"
+            !userInfo && (
+              <div
+                onDragOver={(e) => handleDragOver(e)}
+                onDragLeave={(e) => handleDragLeave(e)}
+                onDrop={(e) => handleDrop(e)}
+                className="dropBox text-center p-5 "
               >
-                Browse file
-              </label>
-              <input
-                type="file"
-                onChange={handleFile}
-                name="file"
-                id="csvFile"
-                hidden
-              />
-            </div>
+                {!upload ? (
+                  <h1 className="Drop-content">
+                    {on
+                      ? "Release To Upload  File"
+                      : "Drag & Drop To Upload File"}
+                  </h1>
+                ) : (
+                  <h1 className="Drop-content text-success">File uploaded</h1>
+                )}
+                <label
+                  className="btn btn-color browseFileBtn text-bold text-light"
+                  htmlFor="csvFile"
+                >
+                  Browse file
+                </label>
+                <input
+                  type="file"
+                  onChange={handleFile}
+                  name="file"
+                  id="csvFile"
+                  hidden
+                />
+              </div>
+            )
+          )}
+
+          {userInfo && (
+            <Mail
+            setSelect={setSelect}
+              multipleUser={multipleUser}
+              closeModal={closeModal}
+              userInfo={userInfo}
+            ></Mail>
           )}
         </div>
       </Modal>

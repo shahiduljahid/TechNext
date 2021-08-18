@@ -12,8 +12,9 @@
     
 }
 @media (max-width:350px) {
-    .firstName{
-        display: none;
+    .lastName,.pageCounter{
+        display: none!important;
     }
+   
     
 }
