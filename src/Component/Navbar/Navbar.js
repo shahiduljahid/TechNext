@@ -57,15 +57,6 @@ const Navbar = () => {
                 Employees
               </Link>
             </li>
-
-            <li className="nav-item ">
-              <Link
-                to={"/contact"}
-                className="nav-link  navigation me-5 text-light "
-              >
-                Contact
-              </Link>
-            </li>
           </ul>
         </div>
       </div>

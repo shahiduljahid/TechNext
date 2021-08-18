@@ -10,14 +10,14 @@ const Admin = () => {
     {
       _id: "60928d61f77998484ce0da2a",
       title: "Add Single Employee",
-      description: "Add an employee with their firstName, lastName and Email",
+      description: "single employee ; every employee must need firstName,lastName and email",
       img: person,
       file: false,
     },
     {
       _id: "60928ee6f77998484ce0da2b",
-      title: "Add With CSV",
-      description: "Add Multiple employee with a CSV file.",
+      title: "Add Employee  With CSV",
+      description: "Add with a CSV file; every employee must need firstName,lastName and email",
       img: people,
       file: true,
     },

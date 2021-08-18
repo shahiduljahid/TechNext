@@ -17,4 +17,8 @@
   .pageCounter {
     display: none !important;
   }
+  .employeeCard{
+    padding-right:5px!important;
+    padding-left: 5px!important;
+  }
 }

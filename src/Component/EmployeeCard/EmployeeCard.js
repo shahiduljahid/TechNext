@@ -5,6 +5,7 @@ import { COLUMNS } from "./columns";
 import RecruiteForm from "../RecruiteForm/RecruiteForm";
 import { useState } from "react";
 
+
 const EmployeeCard = ({ totalEmployees }) => {
   //single mail send and modal functions
   const [userInfo, setUserInfo] = useState({
@@ -103,7 +104,7 @@ const EmployeeCard = ({ totalEmployees }) => {
 
   return (
     <div className="row">
-      <div className="px-5 py-5">
+      <div className="px-5 employeeCard py-5">
         {!select && (
           <button
             onClick={handleSelect}
